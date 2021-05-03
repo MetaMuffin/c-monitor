@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
+@import url("./tabs.css");
+
+* {
+    padding: 0px;
+    margin: 0px;
+    user-select: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+:root {
+    --background: #121212;
+    --on-background: #dddddd;
+
+    --surface-1: #222222;
+    --surface-1-hover: #333333;
+    --surface-2: #555555;
+    --on-surface: #ffffff;
+
+    --primary: #bb86fc;
+    --primary-variant: #3700b3;
+    --error: #cf6679;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--background);
+}
+
+p {
+    color: var(--on-surface);
+}
+
+span {
+    color: var(--on-background);
+    font-style: italic;
+    padding-left: 2em;
+}
+
+
+h1,
+h2 {
+    margin: 2em;
+    color: var(--primary);
+}
+
+ul {
+    list-style: none;
+}

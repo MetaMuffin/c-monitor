@@ -1,0 +1,32 @@
+
+
+.tab-navigator {
+    display: flex;
+    height: 100%;
+}
+.tab-navigator .tabs {
+    flex-grow: 100;
+}
+
+.tab-navigator ul {
+    width: 15em;
+    background-color: var(--surface-1);
+    box-shadow: 0px 10px 30px -5px rgba(0,0,0,0.5);
+}
+
+
+.tab-navigator ul li {
+    padding: 1em;
+    border-bottom: 1px solid var(--surface-2);
+    background-color: var(--surface-1);
+    transition: background-color 0.2s;
+}
+.tab-navigator ul li:hover {
+    background-color: var(--surface-1-hover);
+}
+.tab-navigator ul li p {
+    transition: color 0.2s;
+}
+.tab-navigator ul li.selected p {
+    color: var(--primary);
+}
