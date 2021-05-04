@@ -4,29 +4,33 @@
     display: flex;
     height: 100%;
 }
-.tab-navigator .tabs {
+.tab-navigator > .tabs {
     flex-grow: 100;
 }
 
-.tab-navigator ul {
+.tab-navigator > ul {
+    margin: 0px;
+    padding: 0px;
     width: 15em;
     background-color: var(--surface-1);
     box-shadow: 0px 10px 30px -5px rgba(0,0,0,0.5);
 }
 
 
-.tab-navigator ul li {
+.tab-navigator > ul > li {
+    margin: 0px;
+    padding: 0px;
     padding: 1em;
     border-bottom: 1px solid var(--surface-2);
     background-color: var(--surface-1);
     transition: background-color 0.2s;
 }
-.tab-navigator ul li:hover {
+.tab-navigator > ul > li:hover {
     background-color: var(--surface-1-hover);
 }
-.tab-navigator ul li p {
+.tab-navigator > ul > li p {
     transition: color 0.2s;
 }
-.tab-navigator ul li.selected p {
+.tab-navigator > ul > li.selected p {
     color: var(--primary);
 }

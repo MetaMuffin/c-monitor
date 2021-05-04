@@ -1,0 +1,59 @@
+
+.input-pair {
+    font-family: "Roboto";
+    --underline-color: var(--surface-1-hover);
+    margin-left: 1em;
+    margin-bottom: 1.5rem;
+    position: relative;
+    width: 20.4375rem;
+
+}
+
+.input-pair input {
+    font-family: "Roboto";
+    margin-left: 0.75em;
+    border: none;
+    border-bottom: 0.125rem solid var(--surface-1);
+    width: 75%;
+    height: 2rem;
+    font-size: 1.0625rem;
+    padding-left: 0.875rem;
+    line-height: 147.6%;
+    padding-top: 0.825rem;
+    padding-bottom: 0.5rem;
+
+    background-color: var(--surface-1);
+    /* background-color: transparent; */
+    color: var(--on-surface);
+}
+
+.input-pair input:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.input-pair input:invalid {
+    box-shadow: none;
+    border-color: var(--error);
+}
+
+.input-pair span {
+    font-size: large;
+    position: absolute;
+    top: 0.9375rem;
+    left: 0.875rem;
+    line-height: 147.6%;
+    /* margin-bottom: 0.5em; */
+    margin-top: 0.3em;
+    color: var(--surface-2);
+    transition: all 0.2s;
+    transform: translateY(-1em);
+    pointer-events: none;
+}
+
+.input-pair input:not(:placeholder-shown) + span,
+.input-pair input:focus + span {
+    top: -0.2em;
+    font-size: medium;
+    color: var(--primary);
+}

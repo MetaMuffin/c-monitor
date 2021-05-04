@@ -1,11 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap");
 @import url("./tabs.css");
+@import url("./input.css");
 
 * {
     padding: 0px;
     margin: 0px;
     user-select: none;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 
 :root {
@@ -28,16 +29,13 @@ body {
     background-color: var(--background);
 }
 
-p {
+p, input {
     color: var(--on-surface);
 }
 
 span {
     color: var(--on-background);
-    font-style: italic;
-    padding-left: 2em;
 }
-
 
 h1,
 h2 {
@@ -47,4 +45,13 @@ h2 {
 
 ul {
     list-style: none;
+    margin-left: 1em;
 }
+
+li {
+    margin-left: 0.5em;
+    padding-bottom: 0.5em;
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid var(--surface-2);
+}
+

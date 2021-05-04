@@ -6,20 +6,25 @@ export type CSPacket = CSNetworkHost
 
 
 export interface SCPacketBase {
-    handle: string
+    handle?: string
+    last?: boolean
 }
 export interface CSPacketBase {
-    handle: string
+    handle?: string
 }
 
 
 export interface SCNetworkHost extends SCPacketBase {
     type: "network/host"
-    hostname: string
+    entries: NetworkHostEntry[]
 }
 export interface CSNetworkHost extends CSPacketBase {
     type: "network/host"
-    output: string
+    hostname: string
 }
 
+export type NetworkHostEntry = NetworkHostEntryIPV4 | NetworkHostEntryIPV6 | NetworkHostEntryMail
+export interface NetworkHostEntryIPV4 {type: "ipv4", ip: string}
+export interface NetworkHostEntryIPV6 {type: "ipv6", ip: string}
+export interface NetworkHostEntryMail {type: "mail", priority: number, ip: string}
 

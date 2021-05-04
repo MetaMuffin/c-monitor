@@ -1,6 +1,7 @@
 import { NavTab, u_tab_navigator } from "../ui/tabs";
-import { s_var, u_div, u_h2, u_p, u_span } from "../ui/base";
+import { u_div, u_h2, u_p, u_span } from "../ui/base";
 import { a_network_tab } from "./network";
+import { s_var } from "../ui/event";
 
 export function a_app(): HTMLElement {
     return u_tab_navigator(

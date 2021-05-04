@@ -1,7 +1,26 @@
+import { CSPacket, SCPacket } from "../types"
 import { a_app } from "./app"
-import { SEmitter } from "./ui/base"
+import { SEmitter } from "./ui/event";
 
 var ws: WebSocket
+
+var websocket_callbacks: { [key: string]: (value: SCPacket) => void } = {}
+
+export function websocket_request(request: CSPacket, callback: (response: SCPacket) => void) {
+    console.log("websocket send", request);
+    var handle = Math.random().toString()
+    websocket_callbacks[handle] = callback
+    request.handle = handle
+    ws.send(JSON.stringify(request))
+}
+
+export function async_websocket_request(request: CSPacket): Promise<SCPacket> {
+    return new Promise((res, rej) => {
+        websocket_request(request, (response) => {
+            res(response)
+        })
+    })
+}
 
 
 window.onload = () => {
@@ -17,8 +36,14 @@ window.onload = () => {
         try {
             j = JSON.parse(ev.data.toString())
         } catch (e) { console.log("server sent invalid json") }
-
-
+        console.log("websocket response", j);
+        //@ts-ignore we trust™ the server
+        var j2: SCPacket = j
+        if (!j2.handle) throw new Error("Server ist stupid");
+        if (!websocket_callbacks[j2.handle]) throw new Error("Server responed to something we have not issued");
+        const handler = websocket_callbacks[j2.handle]
+        handler(j2)
+        if (j2.last) delete websocket_callbacks[j2.handle]
     }
 
     document.body.appendChild(a_app())

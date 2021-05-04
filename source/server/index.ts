@@ -44,8 +44,9 @@ async function main() {
 
     var mode = process.env.NODE_ENV ?? "dev"
     var hostname = process.env.HOSTNAME ?? "127.0.0.1"
+    var port = process.env.PORT ?? 8080
 
-    app.listen(8080, () => {
+    app.listen(port, () => {
         console.log("http server keckt!");
     })
 
